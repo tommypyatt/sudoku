@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --content-base ./dist --config ./webpack.config.js --mode development",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "publish": "git subtree push --prefix dist origin gh-pages"
   },
   "author": "",
   "license": "ISC",
