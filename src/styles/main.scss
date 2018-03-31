@@ -1,0 +1,95 @@
+.app {
+    max-width: 768px;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.numpad,
+.grid {
+    list-style: none;
+    padding: 0;
+    font-size: 2em;
+}
+
+.grid {
+    width: 95%;
+    margin: 0 auto;
+
+    &__cell {
+        cursor: pointer;
+        position: relative;
+        float: left;
+        width: 10%;
+        padding-bottom: 10%;
+        margin: -1px 0 0 -1px;
+        border: 1px solid black;
+
+        &--0 {
+            clear: left;
+            border-left-width: 4px;
+        }
+
+        &--2,
+        &--5,
+        &--8 {
+            border-right-width: 4px;
+        }
+
+        &--row-0 {
+            border-top-width: 4px;
+        }
+
+        &--row-2,
+        &--row-5,
+        &--row-8 {
+            border-bottom-width: 4px;
+        }
+
+        &.is-selected {
+            background: #ddd;
+        }
+    }
+
+    &__number {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        line-height: 0;
+    }
+}
+
+.numpad {
+    clear: both;
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 40%;
+
+    &__key {
+        cursor: pointer;
+        position: relative;
+        float: left;
+        width: 31%;
+        padding-bottom: 33%;
+        margin: -2px 0 0 -2px;
+        border: 2px solid black;
+
+        &:nth-child(3n + 1) {
+            clear: left;
+        }
+    }
+
+    &__number {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        line-height: 0;
+    }
+}
