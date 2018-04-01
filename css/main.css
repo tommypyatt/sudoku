@@ -21,10 +21,10 @@
     padding-bottom: 10%;
     margin: -1px 0 0 -1px;
     border: 1px solid black; }
-    .grid__cell--0 {
+    .grid__cell--col-0 {
       clear: left;
       border-left-width: 4px; }
-    .grid__cell--2, .grid__cell--5, .grid__cell--8 {
+    .grid__cell--col-2, .grid__cell--col-5, .grid__cell--col-8 {
       border-right-width: 4px; }
     .grid__cell--row-0 {
       border-top-width: 4px; }
