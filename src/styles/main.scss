@@ -27,14 +27,14 @@
         margin: -1px 0 0 -1px;
         border: 1px solid black;
 
-        &--0 {
+        &--col-0 {
             clear: left;
             border-left-width: 4px;
         }
 
-        &--2,
-        &--5,
-        &--8 {
+        &--col-2,
+        &--col-5,
+        &--col-8 {
             border-right-width: 4px;
         }
 
