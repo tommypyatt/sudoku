@@ -7,7 +7,7 @@ import { Numpad } from './components/Numpad';
 class App extends React.Component {
     constructor (props) {
         var i = 0;
-        var values = '..526978.68257149.1978345628261.534737468291595174362851932687.24895713676341825.'
+        var values = '9...718..47.9.....6.2..37...8.45.3....7....9639..2.5.1..1....4....58.6...23.....5'
         var cells = [];
 
         for (;i < 81;i++) {
