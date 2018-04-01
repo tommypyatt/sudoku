@@ -8,7 +8,26 @@
 .grid {
   list-style: none;
   padding: 0;
-  font-size: 2em; }
+  font-size: 3em; }
+
+.grid-wrap {
+  position: relative; }
+  .grid-wrap:after {
+    content: "";
+    clear: both;
+    display: table; }
+  .grid-wrap .win-overlay {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: calc(100% + 20px);
+    width: 100%;
+    background: #fff;
+    z-index: 1;
+    opacity: 0.9;
+    text-align: center; }
+    .grid-wrap .win-overlay h2 {
+      font-size: 100px; }
 
 .grid {
   width: 95%;
@@ -31,7 +50,9 @@
     .grid__cell--row-2, .grid__cell--row-5, .grid__cell--row-8 {
       border-bottom-width: 4px; }
     .grid__cell.is-selected {
-      background: #ddd; }
+      background: #93caff; }
+    .grid__cell.is-disabled {
+      background: #eaeaea; }
   .grid__number {
     position: absolute;
     top: 50%;
