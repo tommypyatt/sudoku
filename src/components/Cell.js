@@ -8,6 +8,7 @@ class Cell extends React.Component {
     render () {
         var className = 'grid__cell';
         className += (this.props.selectedCell === this.props.cell.index) ? ' is-selected' : '';
+        className += (this.props.cell.disabled) ? ' is-disabled' : '';
         className += ' grid__cell--row-' + this.props.cell.row;
         className += ' grid__cell--col-' + this.props.cell.column;
 

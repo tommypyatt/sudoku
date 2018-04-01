@@ -7,17 +7,20 @@ import { Numpad } from './components/Numpad';
 class App extends React.Component {
     constructor (props) {
         var i = 0;
-        var values = [null,null,5,2,6,9,7,8,1,6,null,2,5,7,1,4,9,3,1,9,7,8,3,null,5,6,2,8,2,6,1,9,5,3,4,7,3,null,4,6,8,2,9,1,5,9,5,1,7,4,3,6,2,null,5,1,9,3,2,null,8,7,4,2,4,8,null,5,7,1,3,6,7,6,3,4,1,8,null,5,9]
+        var values = '..526978.68257149.1978345628261.534737468291595174362851932687.24895713676341825.'
         var cells = [];
 
         for (;i < 81;i++) {
             let row = Math.floor(i / 9);
             let column = i % 9;
             let box = (Math.floor(row / 3) * 3) + Math.floor(column / 3);
+            let value = values.slice(i, i + 1);
+            let isDisabled = value !== '.';
 
             cells.push({
                 index: i,
-                value: values[i],
+                value: isDisabled ? parseInt(value, 10) : '',
+                disabled: isDisabled,
                 row: row,
                 column: column,
                 box: box
@@ -28,7 +31,8 @@ class App extends React.Component {
         this.state = {
             cells: cells,
             difficulty: 'Easy',
-            selectedCell: null
+            selectedCell: null,
+            complete: false
         }
 
         this.selectCell = this.selectCell.bind(this);
@@ -46,6 +50,10 @@ class App extends React.Component {
         var index = _.findIndex(this.state.cells, function (cell) {
             return cell.index === selectedCell
         });
+
+        if (this.state.cells[selectedCell].disabled) {
+            return;
+        }
 
         if (index !== -1) {
             this.state.cells[index].value = key;
@@ -68,7 +76,9 @@ class App extends React.Component {
         }.bind(this));
 
         if (complete === true) {
-            alert('YOU WIN');
+            this.setState({
+                complete: true
+            });
         }
     }
 
@@ -101,7 +111,10 @@ class App extends React.Component {
     render () {
         return <div>
             <h1>Sudoku</h1>
-            <Grid cells={this.state.cells} selectCell={this.selectCell} selectedCell={this.state.selectedCell} />
+            <div className='grid-wrap'>
+                <div className='win-overlay' style={{'display': this.state.complete ? 'block' : 'none'}}><h2>You win</h2></div>
+                <Grid cells={this.state.cells} selectCell={this.selectCell} selectedCell={this.state.selectedCell} />
+            </div>
             <Numpad press={this.press} />
         </div>
     }

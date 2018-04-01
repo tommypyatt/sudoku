@@ -8,7 +8,7 @@ class Grid extends React.Component {
                 return <Cell
                     key={index}
                     cell={cell}
-                    selectCell={this.props.selectCell} 
+                    selectCell={this.props.selectCell}
                     selectedCell={this.props.selectedCell} />
             })}
         </ul>
